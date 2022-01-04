@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./icons/icon-style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: sans-serif;
+            }
+            .banner {
+                padding: 10px 16px;
+                text-align: center;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+                    0 1px 2px rgba(0, 0, 0, 0.14);
+                font-weight: bold;
+                position: relative;
+            }
+
+            .controls {
+                padding: 16px 16px 4px 16px;
+            }
+            .filter {
+                margin-bottom: 12px;
+            }
+            .filter label {
+                cursor: pointer;
+                display: block;
+                padding-right: 50px;
+                padding-left: 22px;
+                text-indent: -22px;
+            }
+            .filter input {
+                vertical-align: middle;
+                width: 16px;
+                margin: 0;
+            }
+            .filter label span {
+                vertical-align: middle;
+                user-select: none;
+            }
+            .filter .label {
+                margin-left: 16px;
+                background-color: #eaeaea;
+                padding: 6px 8px;
+                margin-top: 4px;
+                font-size: x-small;
+                width: 250px;
+                word-wrap: break-word;
+                display: block;
+                margin-left: 16px;
+            }
+
+            .custom-format {
+                display: none;
+                border-top: 1px solid #bbb;
+                padding: 16px;
+            }
+
+            .text-input {
+                display: flex;
+                flex: row;
+            }
+            .text-input input[type="text"] {
+                flex-grow: 1;
+                margin-bottom: 12px;
+                font-family: monospace;
+                border: 1px solid black;
+                padding: 3px;
+            }
+            .text-input label {
+                margin-right: 8px;
+                width: 90px;
+            }
+            .custom-format button {
+                background: #5077d3;
+                border: none;
+                border-radius: 2px;
+                color: white;
+                padding: 4px 12px;
+                letter-spacing: 0.05em;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            #save-container {
+                display: flex;
+                flex: row;
+                justify-content: end;
+            }
+
+            #settings-button {
+                width: 24px;
+                position: absolute;
+                right: 12px;
+                top: 0px;
+                bottom: 0px;
+                font-size: 16px;
+                text-align: center;
+                background: transparent;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                color: rgba(0, 0, 0, 0.54);
+            }
+
+            #settings-button:hover,
+            #settings-button:focus {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="banner">
+            <span>Foxtel Click to Call</span>
+            <button id="settings-button">
+                <i class="icon-cog" aria-hidden="true"></i>
+                <span class="visuallyhidden">Settings</span>
+            </button>
+        </header>
+
+        <div class="controls">
+            <div class="filter domain" style="width: 250px">
+                <input type="hidden" id="filterDomain" />
+                <span style="font-size: 16px; font-weight: 300"
+                    >Disable on this domainThis extension detects phone numbers
+                    and add phone icon with a link to external
+                    applications.</span
+                >
+                <div
+                    class="label"
+                    id="currentDomainLabel"
+                    style="display: none"
+                ></div>
+            </div>
+
+            <div class="filter url" style="display: none">
+                <label for="filterURL">
+                    <input
+                        type="checkbox"
+                        id="filterURL"
+                        style="display: none"
+                    />
+                    <span>Disable on this URL</span>
+                </label>
+                <div class="label" id="currentURLLabel"></div>
+            </div>
+            <div class="filter format" style="display: none">
+                <label for="customFormat">
+                    <input type="checkbox" id="customFormat" />
+                    <span>Custom format on this domain</span>
+                </label>
+            </div>
+        </div>
+
+        <div id="customFormatRow" class="custom-format" style="display: none">
+            <div class="text-input">
+                <label for="telLinkFormat">Link Format</label>
+                <input type="text" id="telLinkFormat" />
+            </div>
+            <div class="text-input">
+                <label for="linkTextFormat">Link Text</label>
+                <input type="text" id="linkTextFormat" />
+            </div>
+            <div id="save-container">
+                <button id="saveButton">Save</button>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="common.js"></script>
+        <script type="text/javascript" src="browser_action.js"></script>
+    </body>
+</html>

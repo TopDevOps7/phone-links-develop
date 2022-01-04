@@ -1,0 +1,67 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "name": "Click to Call",
+  "version": "2.0.0",
+  "manifest_version": 2,
+  "description": "Enables 'Click to Call' by converting phone numbers into clickable links.",
+  "browser_specific_settings": {
+    "gecko": { "id": "clicktocall@nickiacullo.com" }
+  },
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "tabs"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "common.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "common.js",
+        "content_script.js",
+        "jquery.min.js"
+      ],
+      "matches": [ "<all_urls>" ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_title": "Click to Call - Page Options",
+    "default_popup": "browser_action.html",
+    "theme_icons": [
+      {
+        "light": "icons/icon16.png",
+        "dark": "icons/icon16.png",
+        "size": 16
+      }, {
+        "light": "icons/icon48.png",
+        "dark": "icons/icon48.png",
+        "size": 32
+      }, {
+        "light": "icons/icon128.png",
+        "dark": "icons/icon128.png",
+        "size": 64
+      }
+    ]
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false,
+    "browser_style": true,
+    "chrome_style": true
+  }
+}

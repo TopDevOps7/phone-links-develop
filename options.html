@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>FoxTel Click To Call Options</title>
+    <link type="text/css" href="options.css" rel="stylesheet" />
+    <script type="text/javascript" src="options.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+
+</head>
+<body>
+    <div id="main-container" style="visibility: visible;padding: 20px;">
+        <div id="body-container">
+            <div id="logo"><img src="icons/icon48.png" style="margin-right: 10px;float: left;"><h1>FoxTel Click To Call Options</h1></div>
+            <p>
+                This extension provides one click connection between phone numbers on web pages and your softphone app, Skype or Hangouts application. <br/>
+                Protocol can be selected between <b>tel</b>, <b>callto</b> and <b>sip</b> depending on your external application support.<br/>
+                Extension recognizes US phone numbers by default. Users can opt to use custom regex pattern for detection. 
+            </p>
+
+            <form name="options">
+                <table align="center" style="table-layout: fixed; width:auto ">
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="padding-top:10px">
+                                <label >Protocol Selection</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" >
+                                <input id="tel" type="radio" name="protgroup" checked="checked" />
+                                <label for="telRadio">tel:PHONENUMBER</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" >
+                                <input id="callto" type="radio" name="protgroup"  />
+                                <label for="callRadio">callto:PHONENUMBER</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" >
+                                <input id="sip" type="radio" name="protgroup"  />
+                                <label for="sipRadio">sip:PHONENUMBER</label>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" style="padding-top:20px">
+                                <label>Phone Detection Regular Expression</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" >
+                                <input id="usRegex" type="radio" name="regexgroup" checked="checked" />
+                                <label for="isCustomRegex">Detect US Phone Numbers</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" >
+                                <input id="customRegexRadio" type="radio" name="regexgroup" />
+
+                                <label for="customRegexRadio">Use Custom Regex:</label>
+                                <input id="customRegex" class="text" style="width: 480px;margin: 5px 5px 5px 20px;" /></input>
+                                
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div id="buttons">
+                    <span id="status">Saved</span>
+                    <input type="button" value="Save" class="button" id="save" />
+                </div>
+            </form>
+            <div  style="font-size: x-small;">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        </div>
+    </div>
+</body>
+</html>

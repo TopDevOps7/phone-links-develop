@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Click to Call - Options</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 20px;
+            width: 400px;
+            font-size: 12px;
+            font-family: sans-serif;
+        }
+        section { margin-bottom: 2em; }
+        h2 {
+            margin: 0 0 8px 0;
+            font-weight: bold;
+            color: #555;
+        }
+        #guide {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+            color: #555;
+        }
+        .settings {
+            display: flex;
+            flex-flow: column;
+            margin-bottom: 20px;
+        }
+        .settings input[type="text"] {
+            font-family: monospace;
+            font-size: 1.25em;
+            margin-bottom: 8px;
+            border: solid #aaa 1px;
+            padding: 3px 3px 4px;
+        }
+        #saveButton {
+            margin-top: 8px;
+            text-align: center;
+            background: #dedede;
+            border: none;
+            border-radius: 2px;
+            height: 2em;
+            box-shadow: none;
+            text-shadow: none;
+        }
+        #saveButton:hover, #saveButton:focus { background: #cecece; }
+        #saveButton:active { background: #aaa; }
+
+        .filters { margin-bottom: 16px; }
+        .filters .filter-heading {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .filters ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .filters ul li {
+            position: relative;
+            height: 2.5em;
+            padding: 0 0 0 1.5em;
+            line-height: 2.5em;
+            border-radius: 3px;
+            background-color: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .filters ul li:hover::before {
+            content: "❌";
+            position: absolute;
+            left: .5em;
+            top: 0px;
+            z-index: 1;
+            color: #555;
+            font-size: .75em;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>Settings</h2>
+        <ul id="guide">
+            <li>{0} = the original number</li>
+            <li>{1} = the area code</li>
+            <li>{2} = the three digit prefix</li>
+            <li>{3} = the four digit line number</li>
+        </ul>
+
+        <div class="settings">
+            <label for="telLinkFormat">Link Format</label>
+            <input type="text" id="telLinkFormat" />
+
+            <label for="linkTextFormat">Link Text</label>
+            <input type="text" id="linkTextFormat" />
+            <button id="saveButton">Save</button>
+        </div>
+    </section>
+
+    <section id="filtersSection">
+        <h2>Filters</h2>
+        <div class="filters" id="filteredDomainSection">
+            <div class="filter-heading">
+                <span>Filtered Domains</span>
+                <span>Click to delete</span>
+            </div>
+            <ul id="filteredDomainList"></ul>
+        </div>
+
+        <div class="filters" id="filteredUrlSection">
+            <div class="filter-heading">
+                <span>Filtered URLs</span>
+                <span>Click to delete</span>
+            </div>
+            <ul id="filteredURLList"></ul>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+</body>
+</html>
